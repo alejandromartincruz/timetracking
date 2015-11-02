@@ -1,0 +1,7 @@
+<h1>Project show <%= @id %></h1>
+<%if Project.exists?(@id)%>
+	<%= @project.title %> ==>
+	<%= @project.description %>
+<%else%>
+	<h3>There is no such project</h3>
+<%end%>

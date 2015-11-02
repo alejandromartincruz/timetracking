@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+(1..5).each do |i|
+	Project.create(title: "Ironhack number #{i}", priority: rand(1..3))
+	Project.create(title: "Personal number #{i}", priority: rand(1..3))
+end

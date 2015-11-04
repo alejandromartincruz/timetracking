@@ -1,0 +1,20 @@
+<h3>Create a new Entry</h3>
+<hr>
+<%= form_for [@project, @entry] do |f| %>
+	<div>
+		<%= f.number_field :hours, placeholder:"How many hours?" %>
+	</div><br>
+	<div>
+		<%= f.number_field :minutes, placeholder:"How many minutes?" %>
+	</div><br>
+	<div>
+		<%= f.date_field :data %>
+	</div><br>
+	<div>
+		<%= f.text_area :comments, placeholder:"Insert a comment" %>
+	</div><br>
+	<%= f.submit "Add my time!" %>
+	<button><a href=<%=project_entries_path%>>Back to entries</a></button>
+<%end%>
+<hr>
+<center><img src="https://media.giphy.com/media/rur945hryageI/giphy.gif" alt=""></center>

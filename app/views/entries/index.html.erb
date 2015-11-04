@@ -1,0 +1,13 @@
+<h3>Title: <%= @project.title %></h3>	
+<p>
+	You have worked <%= @project.total_time %> minutes on this project.
+</p>
+<% @entries.each do |entry| %>
+			<li><%= "#{entry.hours} hours and #{entry.minutes} minutes on day #{entry.data}" %>  
+				<%if entry.comments != nil%>
+					"<%=" ==>  #{entry.comments}" unless entry.comments.nil? %>
+				<%end%>
+			</li>
+		<%end%>
+<hr>
+<center><img src="http://data.whicdn.com/images/29996756/animated-cat-stickingout-tongue_large.gif" alt=""></center>

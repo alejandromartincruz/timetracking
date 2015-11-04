@@ -1,0 +1,31 @@
+<h3>Edit Project</h3>
+<hr>
+<% if @project.errors.any? %>
+	<ul>
+	<% @project.errors.full_messages.each do |error_message| %>
+		<li><%= error_message %></li>
+		<% end %>
+	</ul>
+	<hr>
+<% end %>
+
+<%= form_for @project do |f| %>
+	<div>
+		<%= f.label :title %>
+		<%= f.text_field :title, placeholder:"write here a title" %>
+	</div><br>
+	<div>
+		<%= f.label :priority %>
+		<%= f.number_field :priority %>
+	</div><br>
+	<div>
+		<%= f.label :description %>
+		<%= f.text_area :description, placeholder:"description of the project" %>
+	</div><br>
+	<div>
+		<%= f.submit "Edit the project" %>
+		<button><a href="http://localhost:3000/projects">Back to project list</a></button>
+	</div>
+<%end%>
+<hr>
+<img src="https://s-media-cache-ak0.pinimg.com/originals/d8/6a/78/d86a7815dab0de4990f8f19c6cb79cc0.gif" alt="">

@@ -32,6 +32,19 @@ class ProjectsController < ApplicationController
 		end
 	end
 
+	def edit
+		@project = Project.find_by(id: params[:id])
+	end
+
+	def update
+		@project = Project.find_by(id: params[:id])
+		if @project.update(entry_params)
+			redirect_to projects_path
+		else
+			render :edit
+		end
+	end
+
 	private
 	def entry_params
 		params.require(:project).permit(:title, :description, :priority)

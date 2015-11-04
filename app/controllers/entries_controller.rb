@@ -32,6 +32,19 @@ class EntriesController < ApplicationController
 		end
 	end
 
+	def edit
+		@entry = Entry.find_by(id: params[:id])
+	end
+
+	def update
+		@entry = Entry.find_by(id: params[:id])
+		if @entry.update(entry_params)
+			redirect_to project_entries_path(@entry.project.id)
+		else
+			render "edit"
+		end
+	end
+
 	private
 	def entry_params
 		params.require(:entry).permit(:hours, :minutes, :data, :comments)

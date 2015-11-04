@@ -1,18 +1,18 @@
 <h3>Title: <%= @project.title %></h3>
 <button><a href=<%= project_path(@project.id) %>>Project page</a></button>
-<button><a href=<%= projects_path %>>All the Projects</a></button>	
+<button><a href=<%= projects_path %>>All the Projects</a></button>
+<button><a href="<%=project_entries_path%>/new">Add entry</a></button>	
 <p>
 	You have worked <%= @project.total_time %> minutes on this project.
 </p>
 
 <% @entries.each do |entry| %>
-			<li><%= "#{entry.hours} hours and #{entry.minutes} minutes on day #{entry.data}" %>  
+			<li><%= "#{entry.hours} hours and #{entry.minutes} minutes on day #{entry.data}" %>    <button><%= link_to("Edit Entry", edit_entry_path(entry.id)) %></button>
 				<%if entry.comments != nil%>
-					"<%=" ==>  #{entry.comments}" unless entry.comments.nil? %>
+					<%=" ==>  #{entry.comments}" unless entry.comments.nil? %>
 				<%end%>
 			</li>
 		<%end%>
 <br>
-<button><a href="<%=project_entries_path%>/new">Add entry</a></button>
 <hr>
 <center><img src="http://data.whicdn.com/images/29996756/animated-cat-stickingout-tongue_large.gif" alt=""></center>

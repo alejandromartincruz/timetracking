@@ -1,5 +1,13 @@
 <h1>create a new project</h1>
 <hr>
+<% if @project.errors.any? %>
+	<ul>
+	<% @project.errors.full_messages.each do |error_message| %>
+		<li><%= error_message %></li>
+		<% end %>
+	</ul>
+	<hr>
+<% end %>
 
 <%= form_for @project do |f| %>
 	<div>
@@ -19,3 +27,5 @@
 		<button><a href="http://localhost:3000/projects">Back to project list</a></button>
 	</div>
 <%end%>
+<hr>
+<img src="http://www.gifbin.com/bin/500824yu29.gif" alt="">

@@ -1,7 +1,12 @@
 <h1>Project show <%= @id %></h1>
-<%if Project.exists?(@id)%>
-	<%= @project.title %> ==>
-	<%= @project.description %>
-<%else%>
-	<h3>There is no such project</h3>
-<%end%>
+<p>
+	<%if Project.exists?(@id)%>
+		<%= @project.title %> ==>
+		<%= @project.description %>
+	<%else%>
+		<h3>There is no such project</h3>
+	<%end%>
+</p>
+<p>
+	<%= link_to("Back to projects", projects_path) %> / <%= link_to("show Project Entries", project_entries_path(@project.id)) %> 
+</p>

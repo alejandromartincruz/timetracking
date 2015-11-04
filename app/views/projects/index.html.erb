@@ -1,9 +1,9 @@
 		<h1>All the projects: </h1>
-		<% @projects.where("priority <= 3").each do |project| %>
+		<% @projects.each do |project| %>
 			<li>
-				Title: <%= project.title %>  
+				Title: <%= link_to(project.title, project_path(project.id)) %> 
 				<%if project.description != nil%>
-					"<%=" ==>  #{project.description}" unless project.description.nil? %>
+					<%=" ==>  #{project.description}" unless project.description.nil? %>
 				<%end%>
 			</li>
 		<%end%>

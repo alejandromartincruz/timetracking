@@ -1,7 +1,10 @@
-<h3>Title: <%= @project.title %></h3>	
+<h3>Title: <%= @project.title %></h3>
+<button><a href=<%= project_path(@project.id) %>>Project page</a></button>
+<button><a href=<%= projects_path %>>All the Projects</a></button>	
 <p>
 	You have worked <%= @project.total_time %> minutes on this project.
 </p>
+
 <% @entries.each do |entry| %>
 			<li><%= "#{entry.hours} hours and #{entry.minutes} minutes on day #{entry.data}" %>  
 				<%if entry.comments != nil%>

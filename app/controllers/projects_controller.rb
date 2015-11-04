@@ -5,9 +5,9 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
-		@id = params[:project_id].to_i
+		@id = params[:id]
 		
-		@project = Project.find_by(id = @id)
+		@project = Project.find_by(id: @id)
 		#render template "no_project" if @project.nil?
 		
 		render :show
@@ -18,11 +18,22 @@ class ProjectsController < ApplicationController
 	end
 
 	def create
-		Project.create({
-			title:params[:project][:title],
-			description:params[:project][:description],
-			priority:params[:project][:priority]
-			})
-		redirect_to "/projects"
+
+		@project = Project.new(entry_params)
+		#@project = Project.new({
+		#	title:params[:project][:title],
+		#	description:params[:project][:description],
+		#	priority:params[:project][:priority]
+		#	})
+		if @project.save
+			redirect_to "/projects"
+		else
+			render :new
+		end
+	end
+
+	private
+	def entry_params
+		params.require(:project).permit(:title, :description, :priority)
 	end
 end

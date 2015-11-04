@@ -1,5 +1,13 @@
 <h3>Create a new Entry</h3>
 <hr>
+<% if @entry.errors.any? %>
+	<ul>
+	<% @entry.errors.full_messages.each do |error_message| %>
+		<li><%= error_message %></li>
+		<% end %>
+	</ul>
+	<hr>
+<% end %>
 <%= form_for [@project, @entry] do |f| %>
 	<div>
 		<%= f.number_field :hours, placeholder:"How many hours?" %>

@@ -7,7 +7,8 @@
 </p>
 
 <% @entries.each do |entry| %>
-			<li><%= "#{entry.hours} hours and #{entry.minutes} minutes on day #{entry.data}" %>    <button><%= link_to("Edit Entry", edit_entry_path(entry.id)) %></button>
+			<li><%= "#{entry.hours} hours and #{entry.minutes} minutes on day #{entry.data.strftime(" %d/%m/%Y" )}" %>    <button><%= link_to("Edit Entry", edit_entry_path(entry.id)) %></button>
+				<button><%= link_to("Delete", entry_path(entry), method: :delete, data: {confirm: "Are you sure?"}) %></button>
 				<%if entry.comments != nil%>
 					<%=" ==>  #{entry.comments}" unless entry.comments.nil? %>
 				<%end%>

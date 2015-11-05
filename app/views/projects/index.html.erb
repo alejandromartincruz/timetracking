@@ -1,4 +1,7 @@
 		<h1>All the projects: </h1>
+		<br>
+		<button><a href="http://localhost:3000/projects/new">Create a new Project</a></button>
+		<hr>
 		<% @projects.each do |project| %>
 			<li>
 				Title: <%= link_to(project.title, project_path(project.id)) %> 
@@ -8,4 +11,4 @@
 			</li>
 		<%end%>
 		<hr>
-		<button><a href="http://localhost:3000/projects/new">Create a new Project</a></button>
+		<img src="http://media0.giphy.com/media/pn8ZlwPvVClyM/giphy.gif" alt="">

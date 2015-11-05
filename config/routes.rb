@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   #get "/projects/:project_id/entries"=> "entries#index"
   #get "/projects/:project_id"=> "projects#show"
   #post "/projects/:project_id/entries" => "entries#create", as: "project_entries"
-  resources :projects, only: [:index, :new, :show, :create, :edit, :update] do
+  resources :projects, only: [:index, :new, :show, :create, :edit, :update, :destroy] do
   	resources :entries, only: [:index, :new, :create]
   end
 
-  resources :entries, only: [:edit, :update]
+  resources :entries, only: [:edit, :update, :destroy]
 
 end

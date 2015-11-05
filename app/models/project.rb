@@ -5,7 +5,7 @@ class Project < ActiveRecord::Base
 	validates :title, format: { with: /\A[A-Za-z0-9]/ }
 	validates :priority, presence: true, inclusion: { in: [1, 2, 3, 4, 5]}
 	
-	has_many :entries
+	has_many :entries, dependent: :destroy
 
 	def self.iron_high_priority
 		puts "in da class method"

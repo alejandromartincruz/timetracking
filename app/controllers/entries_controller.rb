@@ -45,6 +45,12 @@ class EntriesController < ApplicationController
 		end
 	end
 
+	def destroy
+		entry = Entry.find_by(id: params[:id])
+		entry.destroy
+		redirect_to project_entries_path(entry.project_id)
+	end
+
 	private
 	def entry_params
 		params.require(:entry).permit(:hours, :minutes, :data, :comments)
